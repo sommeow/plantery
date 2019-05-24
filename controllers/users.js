@@ -33,7 +33,7 @@ function index(req, res, next) {
     if (err) return next(err);
     // Passing search values, name & sortKey, for use in the EJS
     res.render('users/index', {
-      students,
+      users,
       user: req.user,
       name: req.query.name,
       sortKey

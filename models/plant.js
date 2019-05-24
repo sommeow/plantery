@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 
 var plantSchema = new mongoose.Schema({
     plant: String,

@@ -1,10 +1,5 @@
-var mongoose = require('mongoose');
-
-var factSchema = new mongoose.Schema({
-    text: String
-  }, {
-    timestamps: true
-  });
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 var userSchema = new mongoose.Schema({
   name: String,

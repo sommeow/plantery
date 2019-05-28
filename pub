@@ -1,0 +1,21 @@
+nav {
+  background-color: #145A32;
+}
+
+main {
+  display: flex;
+  background-color: #145A32;
+  height: 100%;
+}
+
+.brand-logo {
+  display: flex;
+  flex-direction: row;
+  text-transform: capitalize;
+}
+
+h1 {
+  color: white;
+}
+
+/*# sourceMappingURL=pub.map */

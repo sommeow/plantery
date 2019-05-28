@@ -1,6 +1,8 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 var plantSchema = new mongoose.Schema({
+    _id: Schema.Types.ObjectsId,
     plant: String,
     light: String,
     water: String,
@@ -8,17 +10,5 @@ var plantSchema = new mongoose.Schema({
     pot: Number,
     petfriendly: Boolean
 });
-
-var greenhouseSchema = new mongoose.Schema({
-    hardinesszone: String,
-    sunexposure: String,
-    plant: [plantSchema]
-  });
-
-  var nurserySchema = new mongoose.Schema({
-    plant: [plantSchema],
-    vendor: String,
-    cost: Number
-  });
 
 module.exports = mongoose.model('Plant', plantSchema);

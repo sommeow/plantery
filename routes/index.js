@@ -1,7 +1,7 @@
 var router = require('express').Router();
 var passport = require('passport');
 
-// The root route renders our only view
+// get HOME PAGE
 router.get('/', function(req, res) {
   res.redirect('/users');
 });
@@ -14,7 +14,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : 'views/plants',
+    successRedirect : '/users',
     failureRedirect : '/users'
   }
 ));

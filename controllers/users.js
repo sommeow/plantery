@@ -8,7 +8,9 @@ module.exports = {
   addPlant,
   showPlant,
   delPlant,
-  tendPlant
+  tendPlant,
+  buildGreenhouse,
+  visitNursery
 };
 
 function index(req, res, next) {
@@ -58,7 +60,7 @@ function showPlant(req, res, next) {
 }
 
 function delPlant(req, res, next) {
-  User.findOne({'plants._id': req.params.id}, function(err, user) {
+  User.findOne({'plant._id': req.params.id}, function(err, user) {
     user.plant.id(req.params.id).remove();
     user.save(function(err) {
       res.redirect('/users');
@@ -72,4 +74,12 @@ function tendPlant(req, res, next) {
       console.log(plant);
       res.redirect('/users');
   });
+}
+
+function buildGreenhouse(req, res, next) {
+
+}
+
+function visitNursery(req, res, next) {
+
 }

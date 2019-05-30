@@ -17,13 +17,11 @@ var app = express();
 
 // connect to the MongoDB with mongoose
 require('./config/database');
-
 require('./config/passport');
 
 // require our routes
 var indexRoutes = require('./routes/index');
 var usersRoutes = require('./routes/users');
-var dashboardRoutes = require('./routes/dashboard');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -52,7 +50,6 @@ app.use(passport.session());
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
 app.use('/', usersRoutes);
-app.use('/', dashboardRoutes);
 
 // invalid request, send 404 page
 app.use(function(req, res) {

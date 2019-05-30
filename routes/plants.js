@@ -3,11 +3,11 @@ var router = require('express').Router();
 var usersCtrl = require('../controllers/users');
 var plantsCtrl = require('../controllers/plants');
 
-// router.get('/new', flightsCtrl.newFlights);
-// router.post('/', flightsCtrl.create);
-// router.get('/:id', flightsCtrl.show);
-// router.post('/:id', flightsCtrl.addDestination);
-// router.delete('/:id', flightsCtrl.deleteFlight);
-// router.post('/:id/ticket',flightsCtrl.addTicket);
+router.get('/', plantsCtrl.index);
+router.get('/new', plantsCtrl.addPlant);
+router.get('/:id', plantsCtrl.showPlant);
+router.post('/', plantsCtrl.create);
+// router.post('/:id', foodCtrl.updateFood);
+router.delete('/:id', plantsCtrl.deletePlant);
 
 module.exports = router;

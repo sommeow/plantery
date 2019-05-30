@@ -6,7 +6,7 @@ router.get('/', function(req, res) {
   res.redirect('/users');
 });
 
-router.get('/dashboards', isLoggedIn, function(req, res) {
+router.get('/', isLoggedIn, function(req, res) {
   res.render('/dashboards', {
     user: req.user
   });
@@ -20,7 +20,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/dashboards',
+    successRedirect : '/users',
     failureRedirect : '/users'
   }
 ));

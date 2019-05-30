@@ -4,6 +4,9 @@ const Greenhouse = require('../models/greenhouse');
 const Nursery = require('../models/nursery');
 
 module.exports = {
-    addPlants,
-    
+    visitNursery
   };
+
+  function visitNursery(req, res, next) {
+  
+  }

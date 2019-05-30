@@ -3,7 +3,6 @@ var usersCtrl = require('../controllers/users');
 
 // GET /plants
 router.get('/users', usersCtrl.index);
-router.get('/:id', usersCtrl.buildGreenhouse);
 
 // // POST /facts
 // // We will already have access to the logged in student on

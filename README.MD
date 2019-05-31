@@ -10,7 +10,7 @@ I am a huge believer that plants make people happy. There is no shortage of scie
 
 
 ## **Original Wireframe**
-[Imgur](https://i.imgur.com/xME7o9g.jpg)
+![original wireframe of Plantery](https://i.imgur.com/xME7o9g.jpg)
 
 ## Technologies Used
 * HTML

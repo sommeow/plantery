@@ -1,15 +1,13 @@
+var express = require('express');
 var router = require('express').Router();
 var passport = require('passport');
+var User = require('../models/user');
 
-// get HOME PAGE
+// The root route renders our view
 router.get('/', function(req, res) {
-  res.redirect('/users');
-});
-
-router.get('/', isLoggedIn, function(req, res) {
-  res.render('/dashboards', {
+  res.render('../views/index', {
     user: req.user
-  });
+  })
 });
 
 router.get('/auth/google', passport.authenticate(
@@ -20,8 +18,8 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/users',
-    failureRedirect : '/users'
+    successRedirect : './greenhouses/indexGreenhouses',
+    failureRedirect : '../views/index'
   }
 ));
 
@@ -29,12 +27,5 @@ router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
-
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated())
-    return next();
-
-    res.redirect('/');
-}
 
 module.exports = router;

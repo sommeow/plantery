@@ -1,13 +1,17 @@
 var express = require('express');
 var router = require('express').Router();
-var usersCtrl = require('../controllers/users');
 var plantsCtrl = require('../controllers/plants');
 
-router.get('/', plantsCtrl.index);
-router.get('/new', plantsCtrl.addPlant);
-router.get('/:id', plantsCtrl.showPlant);
-router.post('/', plantsCtrl.create);
-// router.post('/:id', foodCtrl.updateFood);
-router.delete('/:id', plantsCtrl.deletePlant);
+router.get('/plants', plantsCtrl.indexPlant);
+
+router.get('/greenhouses/plants', plantsCtrl.newPlant);
+
+// router.post('/update/:id', isLoggedIn, plantsCtrl.tendPlant);
+
+router.get('/greenhouses/:id/plants', plantsCtrl.showPlants);
+
+router.post('/greenhouses/plants', plantsCtrl.createPlant);
+
+router.delete('/greenhouses/:id/plants',plantsCtrl.deletePlant);
 
 module.exports = router;

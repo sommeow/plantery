@@ -1,36 +1,43 @@
-const passport = require('passport');
+var passport = require('passport');
 
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
+var GoogleStrategy = require('passport-google-oauth20').Strategy;
 
-const User = require('../models/user');
+var User = require('../models/user');
 
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_SECRET,
     callbackURL: process.env.GOOGLE_CALLBACK,
-    passReqToCallback: true
 
 },
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOne({googleId: profile.id}, function(err, user) {
-      if (err) return cb(err);
-      if (user) {
-        // returning user 
-        cb(null, user);
+function(accessToken, refreshToken, profile, cb) {
+  // a user has logged in via OAuth!
+  User.findOne({ 'googleId': profile.id }, function(err, user) {
+    if (err) return cb(err);
+    if (user) {
+      if (!user.avatar) {
+        user.avatar = profile.photos[0].value;
+        user.save(function(err) {
+          return cb(null, user);
+        });
       } else {
-        //brand new user
-        var newUser = new User({
-            name: profile.displayName,
-            email: profile.emails[0].value,
-            googleId: profile.id
-        });
-        newUser.save(function(err) {
-            if (err) return cb(err);
-            cb(null. newUser); 
-        });
+        return cb(null, user);
       }
-    });
-  }
+    } else {
+      // we have a new student via OAuth!
+      var newUser = new User({
+        name: profile.displayName,
+        email: profile.emails[0].value,
+        googleId: profile.id
+      });
+      newUser.save(function(err) {
+        if (err) return cb(err);
+        return cb(null, newUser);
+        console.log(newUser);
+      });
+    }
+  });
+}
 ));
 
 passport.serializeUser(function(user, done) {

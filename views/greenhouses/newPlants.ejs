@@ -1,0 +1,21 @@
+<%- include('./partials/header') %>
+
+<h2>Build a New Greenhouse</h2>
+    <form action="/greenhouses" method="POST">
+        <label>Sun Exposure:
+            <select name="sunexposure">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+        </label><br>
+        <label>Greenhouse Name:
+          <input type="text" name="name">
+        </label><br>
+        <label>Hardiness Zone:
+            <input type="text" name="name">
+        </label><br>
+        <input type="submit" value="Build Greenhouse">
+    </form>
+
+<%- include('./partials/footer') %>

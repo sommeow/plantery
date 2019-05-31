@@ -1,0 +1,29 @@
+<%- include('./partials/header') %>
+
+
+<h1>Welcome, <%= user.name %></h1>
+
+<table>
+    <thead>
+      <tr>
+        <th>Greenhouse Name:</th>
+        <th>Hardiness Zone:</th>
+        <th>Sun Exposure:</th>
+        <th>Plants:</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Greenhouse.forEach(function(g) { %>
+        <tr>
+          <td><%= g.name %></td>
+          <td><%= g.hardinesszone %></td>
+          <td><%= g.sunexposure %></td>
+          <td><%= g.plants %></td>
+          <td><a href="/greenhouses/<%= g._id %>">Plants</a></td>
+        </tr>
+        <% }) %>
+    </tbody>
+  </table>
+
+<%- include('./partials/footer') %>

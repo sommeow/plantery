@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 var plantSchema = new mongoose.Schema({
     // _id: Schema.Types.ObjectsId,
-    plant: {type: String, required: true},
+    plant: String,
     light: String,
     water: String,
     soil: String,

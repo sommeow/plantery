@@ -1,4 +1,4 @@
-<%- include('./partials/header') %>
+<%- include('../partials/header') %>
 
 
 <h1>Welcome, <%= user.name %></h1>
@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <% Greenhouse.forEach(function(g) { %>
+      <% greenhouses.forEach(function(g) { %>
         <tr>
           <td><%= g.name %></td>
           <td><%= g.hardinesszone %></td>
@@ -26,4 +26,4 @@
     </tbody>
   </table>
 
-<%- include('./partials/footer') %>
+<%- include('../partials/footer') %>

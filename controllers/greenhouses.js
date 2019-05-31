@@ -62,10 +62,11 @@ module.exports = {
   }
 
   function index(req, res) {
-    Greenhouse.find({}, function(err, greenhouse) {
+    Greenhouse.find({}, function(err, greenhouses) {
         res.render('greenhouses/indexGreenhouses', {
-            users,
-            user: req.user, greenhouses,
+            // users,
+            user: req.user, 
+            greenhouses,
             name: req.query.name
         });
     });

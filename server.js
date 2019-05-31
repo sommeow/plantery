@@ -35,8 +35,9 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname + '/public')));
 app.use('/', express.static(path.join(__dirname + '/public')));
 app.use('/', express.static(path.join(__dirname + '/public')));
-app.use('./views', express.static(path.join(__dirname + '/public')));
-app.use('../views/greenhouses', express.static(path.join(__dirname + '/public')));
+app.use('/views', express.static(path.join(__dirname + '/public')));
+app.use('/views/greenhouses', express.static(path.join(__dirname + '/public')));
+app.use('greenhouses', express.static(path.join(__dirname + '/public')));
 app.use(logger('dev'));
 app.use(methodOverride('_method'));
 
